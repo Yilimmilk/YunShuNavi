@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<!--
+	Aerial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>云树导航</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name='description' content='陌祝个人导航页'>
+    <meta name='keywords' content='伊利,陌祝,云树森林'>
+    <meta name='robots' content='index,follow'>
+    <link rel="apple-touch-icon" href="https://cdn.treeoncloud.com/moz.moe/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="https://cdn.treeoncloud.com/blog_treeoncloud_com/resources/images/favicon.png">
+    <link rel="stylesheet" href="./assets/css/main.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="./assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+<div id="wrapper">
+    <div id="bg"></div>
+    <div id="overlay"></div>
+    <div id="main">
+
+        <!-- Header -->
+        <header id="header">
+            <h1>云树导航</h1>
+            <p>不忘 &nbsp;&bull;&nbsp; 初心 &nbsp;&bull;&nbsp; 负重 &nbsp;&bull;&nbsp;前行</p>
+            <form id="search_form" onsubmit="return search()" class="search_bar">
+                <input type="submit" id="search_submit" value="🔍">
+                <span><i class="clear_input" id="clear" onclick="clear_seach()">🗑️</i>
+              <div class="si"><input class="search" type="text" value="" onkeyup="get_suggest()" onfocus="get_suggest()"
+                                     onpaste="get_suggest()" autocomplete="off" id="search_input"
+                                     placeholder="✎...  客官，请问您想问点啥～"></div>
+            </span>
+                <div id="suggest" style="display:none">
+                    <ul class="sugList" id="sugList"></ul>
+                    <!-- <div class="close" onclick="close_sug()">收起</div> -->
+                </div>
+            </form>
+            <nav style="margin-top: 50px">
+                <ul>
+                    <li><a href="https://www.google.com/" target="_blank">
+                        <img class="img_logo" src="assets/images/google.svg" style="display:block;width: 64px;height: 64px;"/>
+                        <strong class="logo_text">谷歌</strong>
+                    </a></li>
+                    <li><a href="https://cn.bing.com/" target="_blank">
+                        <img class="img_logo" src="assets/images/bing.svg" style="display:block;width: 64px;height: 64px;"/>
+                        <strong class="logo_text">必应</strong>
+                    </a></li>
+                    <li><a href="https://www.wikipedia.org/" target="_blank">
+                        <img class="img_logo" src="assets/images/wikipedia.svg" style="display:block;width: 64px;height: 64px;"/>
+                        <strong class="logo_text">维基百科</strong>
+                    </a></li>
+                    <li><a href="https://www.github.com/" target="_blank">
+                        <img class="img_logo" src="assets/images/github.svg" style="display:block;width: 64px;height: 64px;"/>
+                        <strong class="logo_text">GitHub</strong>
+                    </a></li>
+                    <li><a href="https://www.bilibili.com/" target="_blank">
+                        <img class="img_logo" src="assets/images/bilibili.svg" style="display:block;width: 64px;height: 64px;"/>
+                        <strong class="logo_text">哔哩哔哩</strong>
+                    </a></li>
+                    <li><a href="https://www.uupoop.com/" target="_blank">
+                        <img class="img_logo" src="assets/images/photoshop.svg" style="display:block;width: 64px;height: 64px;"/>
+                        <strong class="logo_text">在线PS</strong>
+                    </a></li>
+                    <li><a href="https://www.cowtransfer.com/" target="_blank">
+                        <img class="img_logo" src="assets/images/cowtransfer.svg" style="display:block;width: 64px;height: 64px;"/>
+                        <strong class="logo_text">奶牛快传</strong>
+                    </a></li>
+                    <!--                    <li><a href="https://treeoncloud.com/" target="_blank" class="icon fa-camera-retro"><span-->
+                    <!--                            class="label">暂无</span></a></li>-->
+                    <!--                    <li><a href="./pages//" class="icon fa-skyatlas"><span class="label">暂无</span></a></li>-->
+                    <!--                    <li><a href="https://treeoncloud.com/" target="_blank" class="icon fa-music"><span-->
+                    <!--                            class="label">暂无</span></a></li>-->
+                    <!--                    <li><a href="https://treeoncloud.com/" target="_blank" class="icon fa-cloud-download"><span-->
+                    <!--                            class="label">暂无</span></span></a></li>-->
+                    <!--                    <li><a href="https://treeoncloud.com/" target="_blank" rel="nofollow noopener"-->
+                    <!--                           class="icon fa-weibo"><span class="label">暂无</span></a></li>-->
+                    <!--                    <li><a href="https://treeoncloud.com/" target="_blank" rel="nofollow noopener"-->
+                    <!--                           class="icon fa-instagram"><span class="label">暂无</span></a></li>-->
+                    <!--                    <li><a href="https://treeoncloud.com/" target="_blank" rel="nofollow noopener"-->
+                    <!--                           class="icon fa-telegram"><span class="label">暂无</span></a></li>-->
+                    <!--                    <li><a href="https://treeoncloud.com/" target="_blank" rel="nofollow noopener"-->
+                    <!--                           class="icon fa-github"><span class="label">暂无</span></a></li>-->
+                    <!--                    <li><a href="https://treeoncloud.com/" target="_blank" rel="nofollow noopener"-->
+                    <!--                           class="icon fa-twitter"><span class="label">暂无</span></a></li>-->
+                    <!--                    <li><a href="2510355993@qq.com" rel="nofollow" class="icon fa-envelope-o"><span-->
+                    <!--                            class="label">Email</span></a></li>-->
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <span class="copyright">&copy; 2020 <a href="https://moz.moe/" target="_blank"
+                                                   rel="nofollow noopener">陌祝</a> . <a href="http://beian.miit.gov.cn/"
+                                                                                       target="_blank"
+                                                                                       rel="nofollow noopener">鄂ICP备20004669号</a> .</span>
+        </footer>
+
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        document.body.classList.remove('is-preload');
+    }
+    window.ontouchmove = function () {
+        return false;
+    }
+    window.onorientationchange = function () {
+        document.body.scrollTop = 0;
+    }
+</script>
+<script>
+    console.log("%c%c网站名称%c云树导航", "line-height:28px;", "line-height:28px;padding:4px;background:#2ccbe6;color:#FADFA3;font-size:14px;", "padding:4px;background:#ff146d;color:green;line-height:28px;font-size:14px;");
+    console.log("%c%c不忘初心，负重前行。", "line-height:28px;", "line-height:28px;padding:4px 0px;color:#fff;font-size:16px;background-image:-webkit-gradient(linear,left top,right top,color-stop(0,#ff22ff),color-stop(1,#5500ff));color:transparent;-webkit-background-clip:text;");
+</script>
+<script type="text/javascript">
+    var last_kw = '';
+    var max_sug_len = 1; //搜索建议最短触发长度
+
+    /*获取搜索建议
+    采用的神马搜索的服务
+    */
+    function get_suggest() {
+        var kw = document.getElementById('search_input').value;
+        var clear = document.getElementById('clear');
+        if (kw) clear.style.display = 'block';
+        else clear.style.display = 'none';
+        if (kw == last_kw) return;
+        last_kw = kw;
+        if (!kw || kw.length < max_sug_len) {
+            close_sug();
+            return;
+        }
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://sugs.m.sm.cn/web?t=w&uc_param_str=dnnwnt&scheme=http&fr=android&bid=1&q=' + encodeURIComponent(kw) + '&_=' + new Date().getTime() + '&callback=jsonp3';
+        var head = document.querySelector('head');
+        script.onload = function () {
+            head.removeChild(script);
+        };
+        head.appendChild(script);
+    }
+
+    function jsonp3(res) {
+
+        var suggest = document.getElementById('suggest');
+        if (!res.r || !res.r.length) {
+            suggest.style.display = 'none';
+            return;
+        }
+        var html = '';
+        res.r.forEach(function (v) {
+            html += '<li>' + v.w + '<b></b></li>';
+        });
+        document.getElementById('sugList').innerHTML = html;
+        suggest.style.display = 'block';
+    }
+
+    function close_sug() {
+        last_kw = '';
+        document.getElementById('suggest').style.display = 'none';
+    }
+
+    function move_input() {
+        document.body.scrollTop = document.getElementById('search_form').offsetTop - 2;
+    }
+
+    function clear_seach() {
+        var input = document.getElementById('search_input');
+        input.value = '';
+        document.getElementById('clear').style.display = 'none';
+        close_sug();
+        input.focus();
+    }
+
+    /*采用百度搜索引擎（我发现百度搜索引擎更符合国人的搜搜习惯）*/
+    function search() {
+        if (document.getElementById("search_input").value != "") {
+            window.location.href = "https://www.baidu.com/s?wd=" + encodeURIComponent(document.getElementById("search_input").value) + "&from=smor&safe=1&snum=1";
+            document.getElementById("search_input").value = "";
+        }
+        return false;
+    }
+
+    document.getElementById('sugList').addEventListener('click', function (e) {
+        var input = document.getElementById('search_input');
+        if (e.target.tagName == 'B') {
+            input.value = e.target.parentNode.firstChild.textContent;
+            input.focus();
+        } else if (e.target.tagName == 'LI') {
+            input.value = e.target.firstChild.textContent;
+            close_sug();
+            search();
+        }
+    });
+    window.addEventListener('resize', move_input);
+</script>
+</body>
+</html>
