@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>水印工具</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <style>
+    <link rel="stylesheet" href="https://cdn.treeoncloud.com/libs/bootstrap-4.5.2-dist/css/bootstrap.min.css">
+    <style type="text/css">
         body {
             margin: auto;
             max-width: 60vh;
@@ -27,44 +28,113 @@
             align-items: center;
             margin-top: 8px;
         }
+
+        .cardBox {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: auto;
+            border-radius: 10px;
+        }
+
+        .cardBox:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+        .headerBox {
+            color: #fff;
+            padding: 10px;
+            font-size: 15px;
+            height: 60px;
+            border-radius: 10px;
+        }
+
+        .bodyBox {
+            padding: 10px;
+        }
+
     </style>
 </head>
 <body>
 <canvas></canvas>
-<div>
-    <input id="upload-input" type="file" accept="image/*">
-    <label>
-        水印文字：
-        <input id="content" type="text" value="">
-    </label>
-    <label>
-        水印颜色：
-        <input id="color" type="color" value="#ffffff">
-    </label>
-    <label>
-        不透明度：
-        <input id="alpha" type="range" min="10" max="100" value="50">
-    </label>
-    <label>
-        水印大小比：
-        <input id="size" type="range" min="3" max="10" value="5">
-    </label>
-    <label>
-        水印间隔比：
-        <input id="gap" type="range" min="20" max="300" value="150">
-    </label>
-    <label>
-        水印字体：
-        <input id="font" type="text"  value="黑体">
-    </label>
-    <a href="javascript:alert('请先打开图片')" download>保存图片</a>
+<div class="cardBox">
+    <div class="headerBox" style="background-color: #4caf50;">
+        <h3>控制台</h3>
+    </div>
+    <div class="bodyBox">
+        <div id="div-container">
+            <p>** 支持拖拽到此框中 **</p>
+            <input id="upload-input" type="file" accept="image/*" onchange="document.getElementById('upload-input').value=this.files[0].name">
+            <label>
+                水印文字：
+                <input id="content" type="text" value="">
+            </label>
+            <label>
+                水印颜色：
+                <input id="color" type="color" value="#ffffff">
+            </label>
+            <label>
+                不透明度：
+                <input id="alpha" type="range" min="10" max="100" value="50">
+            </label>
+            <label>
+                水印大小比：
+                <input id="size" type="range" min="3" max="10" value="5">
+            </label>
+            <label>
+                水印间隔比：
+                <input id="gap" type="range" min="20" max="1000" value="150">
+            </label>
+            <label>
+                水印字体：
+                <input id="font" type="text"  value="黑体" disabled="disabled">
+            </label>
+            <a href="#" onclick="downloadFile()">保存图片</a>
+        </div>
+    </div>
 </div>
+
 <script>
     var img = null;
+    var downloadURL = null;
+    var fileName = null;
+    window.onload = function () {
+        var box = document.getElementById("div-container"); //获得到框体
+        //需要阻止浏览器默认行为
+        // box.addEventListener("dragleave", function (e) {
+        //   box.innerHTML="请松手";
+        // }); //拖离
+        // box.addEventListener("dragenter", function (e) {
+        //     box.innerHTML="拖入到这里进行上传";
+        // }); //拖进
+        box.addEventListener("dragover", function (e) {
+            e.preventDefault();
+        }); //拖动,并且对dragover进行阻止
+        box.addEventListener("drop", function (e) {
+            e.preventDefault(); //取消默认浏览器拖拽效果
+            fileName = e.dataTransfer.files[0].name;
+            var fileList = e.dataTransfer.files; //获取文件对象
+            //检测是否是拖拽文件到页面的操作
+            if (fileList.length == 0) {
+                return;
+            }
+            //检测文件是不是图片
+            if (fileList[0].type.indexOf('image') === -1) {
+                return;
+            }
+            //使用函数
+            createBitmap(fileList[0], function (result) {
+                img = result;
+                repaint()
+            });
+        }, false);
+    }
+
+    //文件选择input的监听
     document.addEventListener('change', function (ev) {
         if (ev.target.type === 'file') {
             if (!ev.target.files.length) return;
             var file = ev.target.files[0];
+            fileName = ev.target.files[0].name;
             createBitmap(file, function (result) {
                 img = result;
                 repaint()
@@ -99,14 +169,28 @@
                 ctx.fillText(content, v, h);
             }
         }
-        document.getElementsByTagName('a')[0].href = ctx.canvas.toDataURL()
+        downloadURL = ctx.canvas.toDataURL()
+        //document.getElementsByTagName('a')[0].href = ctx.canvas.toDataURL()
     }
+
     function createBitmap(blob, callback) {
         var img = document.createElement('img');
         img.addEventListener('load', function () {
             callback(this);
         });
         img.src = URL.createObjectURL(blob);
+    }
+
+    function downloadFile() {
+        var a = document.createElement('a');
+        if (downloadURL != null && fileName != null) {
+            a.href = downloadURL;
+            a.download = "watered-"+fileName;
+            a.click();
+            downloadURL = null;
+        }else {
+            alert("你说，你总得先选个图片吧?");
+        }
     }
 </script>
 </body>
