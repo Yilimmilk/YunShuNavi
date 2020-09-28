@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>云树世界-一个简简单单的MC服务器</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/light-box.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tipso.min.css">
+
+    <link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body>
+<nav>
+    <div class="logo">
+        <a href="index.html"><em>Minecraft服务器</em></a>
+    </div>
+    <div class="menu-icon">
+        <span></span>
+    </div>
+</nav>
+
+<div id="video-container">
+    <div class="video-overlay"></div>
+    <div class="video-content">
+        <div class="inner">
+            <h1>云树世界</h1>
+            <p>一个简简单单好友之间的生存世界</p>
+            <div class="server-ip-bar">
+                <form>
+                    <input id="server-ip-text" class="server-ip" type="text" value="Mc.TreeOnCloud.com"
+                           disabled="disabled">
+                    <span id="tip-copy-success" data-tipso="已复制到剪贴板">
+                            <button class="server-ip btn-copy" data-clipboard-text="mc.treeoncloud.com"
+                                    type="button"></button>
+                        </span>
+                </form>
+            </div>
+            <p>版本：1.15.2</p>
+            <div class="scroll-icon">
+                <a class="scrollTo" data-scrollTo="portfolio" href="#"><img src="img/scroll-icon.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <video autoplay loop muted>
+        <source src="server_vid.mp4" type="video/mp4"/>
+    </video>
+</div>
+
+
+<div class="full-screen-portfolio" id="portfolio">
+    <div class="container-fluid">
+        <div class="col-md-4 col-sm-6">
+            <div class="portfolio-item">
+                <a href="img/big-mcshot1.png" data-lightbox="image-1">
+                    <div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1>主城区域 <em>出生点</em></h1>
+                                <p>By Yili_mmilk</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="img/mcshot1.png">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="portfolio-item">
+                <a href="img/big-mcshot2.png" data-lightbox="image-1">
+                    <div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1>主城生存区域 <em>生存世界</em></h1>
+                                <p>By Yili_mmilk</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="img/mcshot2.png">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="portfolio-item">
+                <a href="img/big-mcshot3.png" data-lightbox="image-1">
+                    <div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1>放大化世界 <em>生存世界</em></h1>
+                                <p>By Yili_mmilk</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="img/mcshot3.png">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="portfolio-item">
+                <a href="img/big-mcshot4.png" data-lightbox="image-1">
+                    <div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1>卡露蒂亚 <em>生存世界</em></h1>
+                                <p>By B站@珀尔Po_er</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="img/mcshot4.png">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="portfolio-item">
+                <a href="img/big-mcshot5.png" data-lightbox="image-1">
+                    <div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1>超平坦世界 <em>测试世界</em></h1>
+                                <p>By Yili_mmilk</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="img/mcshot5.png">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
+        <div class="col-md-4 col-sm-6">
+            <div class="portfolio-item">
+                <a href="img/big-mcshot6.png" data-lightbox="image-1">
+                    <div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1>小游戏世界 <em>游戏世界</em></h1>
+                                <p>By Rage_Heart</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="img/mcshot6.png">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <p>Copyright &copy; 2019 Created By <a href="https://mapotofu.cn/" target="_blank" title="麻婆豆腐～">麻婆豆腐</a> &
+                <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备20004669号</a></p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Modal button -->
+<div class="popup-icon">
+    <button id="modBtn" class="modal-btn"><img src="img/white_list_apply.png" alt=""></button>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <!-- Modal Content -->
+    <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h3 class="header-title"><em>云树世界</em> 白名单申请页</h3>
+            <div class="close-btn"><img src="img/close_contact.png" alt=""></div>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <div class="col-md-6 col-md-offset-3">
+                <form id="contact" action="" method="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <fieldset>
+                                <input name="name" type="text" class="form-control" id="name" placeholder="你的游戏名..."
+                                       required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset>
+                                <input name="email" type="email" class="form-control" id="email" placeholder="你的邮箱地址..."
+                                       required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset>
+                                <textarea name="message" rows="6" class="form-control" id="message"
+                                          placeholder="你的留言...（可选）" required></textarea>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="btn">发送消息</button>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="overlay-menu">
+    <div class="container">
+        <div class="row">
+            <div class="main-menu">
+                <ul>
+                    <li>
+                        <a href="index.html">主页</a>
+                    </li>
+                    <li>
+                        <a href="index.html">使用方法(还没做好)</a>
+                    </li>
+                    <li>
+                        <a href="index.html">指令Wiki(也没做好)</a>
+                    </li>
+                    <li>
+                        <a href="packages.html">整合包</a>
+                    </li>
+                </ul>
+                <p>所谓努力，指的是主动而有目的的活动</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.treeoncloud.com/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+<script src="https://cdn.treeoncloud.com/libs/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script src="js/tipso.min.js"></script>
+
+</body>
+</html>

@@ -184,12 +184,12 @@
 
     function downloadFile() {
         var a = document.createElement('a');
-        if (downloadURL != null && fileName != null) {
+        if (downloadURL != null) {
             a.href = downloadURL;
-            a.download = "watered-"+fileName;
+            a.download = "watered-" + fileName;
             a.click();
             downloadURL = null;
-        }else {
+        } else {
             alert("你说，你总得先选个图片吧?");
         }
     }
